@@ -1,4 +1,4 @@
-evcoap
+Evcoap
 ======
 
-A CoAP frontend for Libevent
+A CoAP frontend to Libevent
