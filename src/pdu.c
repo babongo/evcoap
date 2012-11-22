@@ -9,7 +9,8 @@ int evcoap_pdu_decode(const uint8_t *buf, size_t buf_sz, evcoap_pdu_t *pdu)
         return -1;
 
     /* Decode options. */
-    if (pdu->oc) {
+    if (pdu->oc)
+    {
         if (evcoap_opts_decode(buf + EVCOAP_COAP_HDR_SZ, pdu->opts, &opt_sz))
             return -1;
     }
@@ -19,7 +20,8 @@ int evcoap_pdu_decode(const uint8_t *buf, size_t buf_sz, evcoap_pdu_t *pdu)
     size_t payload_offset = EVCOAP_COAP_HDR_SZ + opt_sz;
 
     /* Optional payload. */
-    if (buf_sz > payload_offset) {
+    if (buf_sz > payload_offset)
+    {
         pdu->payload_sz = buf_sz - payload_offset;
         memcpy(pdu->payload, buf + payload_offset, pdu->payload_sz);
     }
